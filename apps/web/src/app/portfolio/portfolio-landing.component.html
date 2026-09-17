@@ -1,0 +1,802 @@
+<div class="portfolio-container">
+  <!-- 4.1 Header / Navigation (Sticky) -->
+  <header
+    class="site-header"
+    [class.is-scrolled]="isScrolled()"
+    [class.is-hidden]="isNavHidden()"
+    role="banner"
+  >
+    <div class="header-inner container">
+      <!-- Logo / Name -->
+      <a href="#hero" class="brand-logo" aria-label="Đắc Cường - Home">
+        <span class="logo-mark">DC</span>
+        <span class="logo-text">Đắc Cường</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li *ngFor="let item of navItems">
+            <a
+              [href]="'#' + item.id"
+              class="nav-link"
+              [class.is-active]="activeSection() === item.id"
+            >
+              {{ item.label }}
+              <span class="active-dot" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop CTA Buttons -->
+      <div class="header-actions">
+        <a
+          href="https://github.com/daccuong-uit"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-ghost"
+        >
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Resume
+        </a>
+        <a href="#contact" class="btn btn-primary">
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        type="button"
+        class="hamburger-btn"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    class="drawer-backdrop"
+    [class.is-open]="mobileMenuOpen()"
+    (click)="closeMobileMenu()"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="mobile-drawer"
+    [class.is-open]="mobileMenuOpen()"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation Menu"
+  >
+    <div class="drawer-header">
+      <span class="drawer-brand">Đắc Cường</span>
+      <button
+        type="button"
+        class="drawer-close"
+        (click)="closeMobileMenu()"
+        aria-label="Close menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Mobile Navigation">
+      <ul class="drawer-list">
+        <li *ngFor="let item of navItems">
+          <a
+            [href]="'#' + item.id"
+            class="drawer-link"
+            [class.is-active]="activeSection() === item.id"
+            (click)="closeMobileMenu()"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="drawer-footer">
+      <a
+        href="https://github.com/daccuong-uit"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-ghost full-width"
+        (click)="closeMobileMenu()"
+      >
+        Download Resume
+      </a>
+      <a
+        href="#contact"
+        class="btn btn-primary full-width"
+        (click)="closeMobileMenu()"
+      >
+        Contact Me
+      </a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- 4.2 Hero Section -->
+    <section class="section-hero" id="hero">
+      <div class="container hero-grid">
+        <!-- 7 Columns Left: Text Content -->
+        <div class="hero-content">
+          <div class="eyebrow-badge">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <span>Backend Engineer · Available for work</span>
+          </div>
+
+          <h1 class="hero-display">
+            Senior Backend Engineer building
+            <span class="text-contrast">scalable, reliable distributed systems</span>.
+          </h1>
+
+          <p class="hero-lead">
+            Xin chào! Tôi là <strong>Đắc Cường</strong> (Alumnus UIT - ĐHQG TP.HCM). Tôi chuyên sâu về
+            thiết kế kiến trúc vi dịch vụ (Microservices), hệ thống phân tán chịu tải cao (High Concurrency),
+            Event-Driven Architecture, cơ sở dữ liệu quy mô lớn và tối ưu hóa hạ tầng Cloud-native.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary btn-lg">
+              Xem dự án / View Work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/daccuong-uit"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost btn-lg"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Resume
+            </a>
+          </div>
+
+          <div class="hero-social-row">
+            <span class="social-divider" aria-hidden="true"></span>
+            <a
+              href="https://github.com/daccuong-uit"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="GitHub Profile"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/daccuong-uit"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="LinkedIn Profile"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a
+              href="mailto:daccuong.uit@gmail.com"
+              class="social-link"
+              aria-label="Send Email"
+              (click)="copyEmail($event)"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <span *ngIf="copiedEmail()" class="social-copied-badge">Email Copied!</span>
+          </div>
+        </div>
+
+        <!-- 5 Columns Right: Minimalist Terminal Card (Visual phụ) -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-amber"></span>
+              <span class="terminal-dot dot-green"></span>
+              <span class="terminal-title">runtime-metrics — sysctl</span>
+            </div>
+            <div class="terminal-body">
+              <p class="terminal-line"><span class="cmd-prompt">$</span> meshctl telemetry --live</p>
+              <p class="terminal-line text-muted">Connecting to cluster agent at 10.0.4.12:9092...</p>
+              <div class="terminal-grid">
+                <div class="terminal-row">
+                  <span class="term-key">STATUS</span>
+                  <span class="term-val val-green">HEALTHY (12/12 PODS)</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">THROUGHPUT</span>
+                  <span class="term-val">12,450 RPS (PEAK)</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">LATENCY P99</span>
+                  <span class="term-val val-cyan">38.2 ms</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">LATENCY P95</span>
+                  <span class="term-val">24.1 ms</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">KAFKA LAG</span>
+                  <span class="term-val val-green">0 ms (SYNCED)</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">DB POOL</span>
+                  <span class="term-val">42 / 100 ACTIVE</span>
+                </div>
+                <div class="terminal-row">
+                  <span class="term-key">UPTIME SLA</span>
+                  <span class="term-val val-green">99.992% (420d)</span>
+                </div>
+              </div>
+              <p class="terminal-line terminal-cursor"><span class="cmd-prompt">&gt;</span> monitoring daemon running...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.3 Tech Stack / Core Expertise (Surface Background) -->
+    <section class="section-surface" id="skills">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Core Expertise</span>
+          <h2 class="section-heading">Kỹ năng chuyên môn & Công nghệ</h2>
+          <p class="section-subtext">
+            Bộ công cụ và nền tảng tôi sử dụng hàng ngày để xây dựng các giải pháp đáng tin cậy.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Col 1: Backend Core -->
+          <div class="skill-group">
+            <div class="skill-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 class="skill-group-title">Backend Core</h3>
+            <ul class="skill-list">
+              <li>Golang (High Concurrency)</li>
+              <li>Java (Spring Boot)</li>
+              <li>Node.js (NestJS / Express)</li>
+              <li>Python & TypeScript</li>
+              <li>Clean & Hexagonal Architecture</li>
+            </ul>
+          </div>
+
+          <!-- Col 2: Distributed & Messaging -->
+          <div class="skill-group">
+            <div class="skill-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 3 21 3 21 8"></polyline>
+                <line x1="4" y1="20" x2="21" y2="3"></line>
+                <polyline points="21 16 21 21 16 21"></polyline>
+                <line x1="15" y1="15" x2="21" y2="21"></line>
+                <line x1="4" y1="4" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="skill-group-title">Distributed & Messaging</h3>
+            <ul class="skill-list">
+              <li>Apache Kafka Event Streaming</li>
+              <li>RabbitMQ AMQP</li>
+              <li>gRPC & Protocol Buffers</li>
+              <li>Event Sourcing & CQRS</li>
+              <li>Transactional Outbox Pattern</li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Databases & Caching -->
+          <div class="skill-group">
+            <div class="skill-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <h3 class="skill-group-title">Databases & Caching</h3>
+            <ul class="skill-list">
+              <li>PostgreSQL (Indexing, Partitioning)</li>
+              <li>Redis Cluster (Cache-Aside, Locks)</li>
+              <li>MySQL & MongoDB</li>
+              <li>Elasticsearch Full-Text</li>
+              <li>MinIO / AWS S3 Object Store</li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Cloud & DevOps -->
+          <div class="skill-group">
+            <div class="skill-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+            <h3 class="skill-group-title">Cloud & DevOps</h3>
+            <ul class="skill-list">
+              <li>Docker & Containerization</li>
+              <li>Kubernetes (K8s Orchestration)</li>
+              <li>AWS (ECS, RDS, S3, CloudWatch)</li>
+              <li>GitHub Actions CI/CD</li>
+              <li>Prometheus, Grafana & Nginx</li>
+            </ul>
+          </div>
+
+          <!-- Col 5: Reliability & Systems -->
+          <div class="skill-group">
+            <div class="skill-icon-wrapper" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="skill-group-title">System Reliability</h3>
+            <ul class="skill-list">
+              <li>Circuit Breakers & Retries</li>
+              <li>Distributed Rate Limiting</li>
+              <li>High Availability & Failover</li>
+              <li>Idempotency & Data Integrity</li>
+              <li>Structured Logging & Tracing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.4 Selected Projects (Base Background - Section trọng tâm) -->
+    <section class="section-base" id="projects">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <span class="section-eyebrow">Featured Work</span>
+            <h2 class="section-heading">Selected Work</h2>
+          </div>
+          <a
+            href="https://github.com/daccuong-uit"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-link"
+          >
+            View all projects on GitHub →
+          </a>
+        </div>
+
+        <div class="project-rows-list">
+          <!-- Project 01 -->
+          <article class="project-row" [class.row-reverse]="false">
+            <div class="project-visual">
+              <div class="arch-card">
+                <div class="arch-card-badge">ARCH-DIAGRAM 01</div>
+                <div class="arch-diagram">
+                  <div class="arch-node node-client">Clients (6 Sub-apps)</div>
+                  <div class="arch-connector">↓ REST / WS</div>
+                  <div class="arch-node node-gateway">API Gateway / Mesh</div>
+                  <div class="arch-split">
+                    <div class="arch-subnode">Kafka Outbox</div>
+                    <div class="arch-subnode">Redis Cache</div>
+                    <div class="arch-subnode">PostgreSQL</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <span class="project-meta">01 · DISTRIBUTED ARCHITECTURE</span>
+              <h3 class="project-title">Reals Platform — Distributed Social Commerce Ecosystem</h3>
+              <p class="project-problem">
+                Tỷ lệ đọc/ghi feed bất đối xứng lớn, áp lực fan-out nghiêm trọng khi creator có hàng chục ngàn follower, và cần đồng bộ trạng thái giữa 6 ứng dụng con độc lập.
+              </p>
+              <div class="project-tags">
+                <span class="pill-badge">Golang</span>
+                <span class="pill-badge">Apache Kafka</span>
+                <span class="pill-badge">PostgreSQL</span>
+                <span class="pill-badge">Redis Cluster</span>
+                <span class="pill-badge">Docker K8s</span>
+              </div>
+              <div class="project-impact">
+                <strong>10,000+ RPS Throughput</strong> · P95 Latency &lt; 45ms · 6 Micro-Clients
+              </div>
+              <a
+                href="https://github.com/daccuong-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-link"
+              >
+                Xem case study kiến trúc →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 02 (Zig-zag inverted) -->
+          <article class="project-row row-reverse">
+            <div class="project-visual">
+              <div class="arch-card">
+                <div class="arch-card-badge">ARCH-DIAGRAM 02</div>
+                <div class="arch-diagram">
+                  <div class="arch-node node-client">Direct S3 Presigned Upload</div>
+                  <div class="arch-connector">↓ Async Job Event</div>
+                  <div class="arch-node node-gateway">BullMQ Queue Engine</div>
+                  <div class="arch-split">
+                    <div class="arch-subnode">FFmpeg Worker</div>
+                    <div class="arch-subnode">HLS 360/720/1080p</div>
+                    <div class="arch-subnode">CDN Cache</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <span class="project-meta">02 · HIGH-THROUGHPUT MEDIA</span>
+              <h3 class="project-title">Video Ingestion & Adaptive HLS Streaming Engine</h3>
+              <p class="project-problem">
+                Tệp video dung lượng lớn gây nghẽn băng thông ứng dụng chính, tiêu tốn CPU đột biến khi xử lý mã hóa chuyển đổi nhiều định dạng HD đồng thời.
+              </p>
+              <div class="project-tags">
+                <span class="pill-badge">Node.js</span>
+                <span class="pill-badge">Go Worker</span>
+                <span class="pill-badge">HLS.js</span>
+                <span class="pill-badge">FFmpeg</span>
+                <span class="pill-badge">MinIO / S3</span>
+              </div>
+              <div class="project-impact">
+                <strong>100% I/O Bypassed</strong> · 3 Giây sẵn sàng phát · Tiết kiệm 40% băng thông
+              </div>
+              <a
+                href="https://github.com/daccuong-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-link"
+              >
+                Xem luồng xử lý media →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-row" [class.row-reverse]="false">
+            <div class="project-visual">
+              <div class="arch-card">
+                <div class="arch-card-badge">ARCH-DIAGRAM 03</div>
+                <div class="arch-diagram">
+                  <div class="arch-node node-client">OAuth2 / OIDC Client</div>
+                  <div class="arch-connector">↓ RS256 Asymmetric Verify</div>
+                  <div class="arch-node node-gateway">IAM Gateway Service</div>
+                  <div class="arch-split">
+                    <div class="arch-subnode">Redis Bloom Filter</div>
+                    <div class="arch-subnode">Token Revocation</div>
+                    <div class="arch-subnode">Zero-DB Auth</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <span class="project-meta">03 · IDENTITY & SECURITY</span>
+              <h3 class="project-title">Reals IAM — Single Sign-On & Centralized Identity Provider</h3>
+              <p class="project-problem">
+                Phiên làm việc và phân quyền cần được xác minh tức thì trên toàn bộ mạng lưới vi dịch vụ, yêu cầu thu hồi token (Token Revocation) ngay lập tức khi phát hiện nghi vấn hoặc đăng xuất.
+              </p>
+              <div class="project-tags">
+                <span class="pill-badge">Golang</span>
+                <span class="pill-badge">JWT RS256</span>
+                <span class="pill-badge">OAuth2 / OIDC</span>
+                <span class="pill-badge">Redis Bloom</span>
+                <span class="pill-badge">PostgreSQL</span>
+              </div>
+              <div class="project-impact">
+                <strong>&lt; 5ms Token Verification</strong> · Zero DB Queries · Đồng bộ SSO 6 clients
+              </div>
+              <a
+                href="https://github.com/daccuong-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="case-link"
+              >
+                Xem chuẩn bảo mật IAM →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Other Projects (Compact Row List) -->
+        <div class="other-projects-wrapper">
+          <h4 class="other-projects-heading">Other Engineering Projects</h4>
+          <div class="other-projects-list">
+            <div *ngFor="let item of otherProjects" class="other-project-row">
+              <div class="other-col-main">
+                <span class="other-title">{{ item.title }}</span>
+                <span class="other-desc">{{ item.description }}</span>
+              </div>
+              <div class="other-col-stack">
+                <span class="other-stack-text">{{ item.stack }}</span>
+              </div>
+              <div class="other-col-action">
+                <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="other-arrow-link" aria-label="View Project">
+                  →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 Experience Snapshot (Surface Background) -->
+    <section class="section-surface" id="experience">
+      <div class="container">
+        <div class="experience-grid">
+          <!-- Col Left: Company, Role & Education -->
+          <div class="exp-left">
+            <span class="section-eyebrow">Experience</span>
+            <h2 class="exp-company">Reals Ecosystem & Core Platform</h2>
+            <p class="exp-role">Senior Backend Engineer & Lead Architect</p>
+            <span class="exp-time">2024 — Hiện tại</span>
+
+            <div class="exp-resume-action">
+              <a
+                href="https://github.com/daccuong-uit"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link"
+              >
+                View full experience on CV (PDF) →
+              </a>
+            </div>
+
+            <!-- Education Snapshot -->
+            <div class="education-block">
+              <span class="edu-label">Nền tảng học thuật</span>
+              <h3 class="edu-degree">Kỹ sư Công Nghệ Thông Tin / Khoa Học Máy Tính</h3>
+              <p class="edu-school">Đại học Công nghệ Thông tin — ĐHQG TP.HCM (UIT)</p>
+              <span class="edu-year">2018 — 2022</span>
+            </div>
+          </div>
+
+          <!-- Col Right: Quantitative Achievements -->
+          <div class="exp-right">
+            <h3 class="exp-achievements-title">Key Engineering Achievements</h3>
+            <ul class="achievement-list">
+              <li class="achievement-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <p>
+                  Thiết kế và triển khai kiến trúc vi dịch vụ định hướng sự kiện (Event-Driven) chịu tải
+                  <strong>10,000+ requests/sec</strong> với tỷ lệ sẵn sàng <strong>99.99% uptime</strong>,
+                  ngăn ngừa hiện tượng cascading failure qua cơ chế Circuit Breaker và Dead-Letter Queues.
+                </p>
+              </li>
+              <li class="achievement-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <p>
+                  Tối ưu hóa chiến lược bộ nhớ đệm đa tầng (Multi-tier Caching) và mô hình Hybrid Fan-out,
+                  giảm độ trễ trung bình truy vấn tin tức người dùng từ <strong>180ms xuống &lt; 45ms (P95)</strong>,
+                  tiết kiệm <strong>55% tài nguyên CPU</strong> của cụm cơ sở dữ liệu PostgreSQL.
+                </p>
+              </li>
+              <li class="achievement-item">
+                <span class="bullet-dot" aria-hidden="true"></span>
+                <p>
+                  Xây dựng hệ thống xác thực tập trung IAM chuẩn OAuth2/OIDC mã hóa bất đối xứng RS256,
+                  kết hợp Redis Bloom Filter cho phép kiểm tra thu hồi Token với thời gian <strong>&lt; 5ms</strong>
+                  hoàn toàn không cần truy vấn trực tiếp vào Database.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.6 Engineering Highlights (Base Background) -->
+    <section class="section-base" id="highlights">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">Engineering Pillars</span>
+          <h2 class="section-heading">Trụ cột kỹ thuật cốt lõi</h2>
+          <p class="section-subtext">
+            5 nguyên tắc và thế mạnh định hình các hệ thống backend chất lượng cao.
+          </p>
+        </div>
+
+        <div class="highlights-grid">
+          <!-- Highlight 1 -->
+          <div class="highlight-item">
+            <div class="highlight-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="highlight-title">Architecture</h3>
+            <p class="highlight-desc">
+              Thiết kế vi dịch vụ phân ranh giới rõ ràng (Bounded Contexts), giao tiếp bất đồng bộ qua Event Broker giảm phụ thuộc.
+            </p>
+          </div>
+
+          <!-- Highlight 2 -->
+          <div class="highlight-item">
+            <div class="highlight-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="highlight-title">Scalability</h3>
+            <p class="highlight-desc">
+              Mở rộng chiều ngang (Horizontal Scaling), phân mảnh dữ liệu (Sharding) và kiến trúc đệm phân tán linh hoạt.
+            </p>
+          </div>
+
+          <!-- Highlight 3 -->
+          <div class="highlight-item">
+            <div class="highlight-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="highlight-title">Performance</h3>
+            <p class="highlight-desc">
+              Kiểm soát phân bổ bộ nhớ (Zero-allocation Go), Connection Pooling và tối ưu truy vấn P99 khắt khe.
+            </p>
+          </div>
+
+          <!-- Highlight 4 -->
+          <div class="highlight-item">
+            <div class="highlight-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="highlight-title">Reliability</h3>
+            <p class="highlight-desc">
+              Cơ chế Circuit Breaker, Exponential Backoff Retries, suy giảm chức năng êm dịu (Graceful Degradation).
+            </p>
+          </div>
+
+          <!-- Highlight 5 -->
+          <div class="highlight-item">
+            <div class="highlight-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="highlight-title">System Design</h3>
+            <p class="highlight-desc">
+              Đảm bảo tính Idempotency, giải quyết bài toán Distributed Transactions qua Saga và Outbox Pattern.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.7 About Snapshot (Surface Background) -->
+    <section class="section-surface" id="about">
+      <div class="container">
+        <div class="about-card-center">
+          <div class="about-monogram" aria-hidden="true">
+            <span>DC</span>
+          </div>
+          <span class="section-eyebrow">About Me</span>
+          <h2 class="about-heading">Đam mê chiều sâu kỹ thuật & giá trị thực tế</h2>
+          <p class="about-bio">
+            Tôi tin rằng một kỹ sư phần mềm xuất sắc không chỉ viết mã nguồn chạy được, mà còn tạo ra những kiến trúc
+            bền vững trước thời gian, tiết kiệm tài nguyên hạ tầng và mang lại trải nghiệm tin cậy cho người dùng.
+          </p>
+          <p class="about-subbio">
+            Tốt nghiệp Đại học Công nghệ Thông tin (UIT - ĐHQG TP.HCM), tôi luôn duy trì kỷ luật kỹ thuật cao,
+            tập trung giải quyết các bài toán hóc búa về tính nhất quán dữ liệu, độ trễ và khả năng phục hồi sau sự cố.
+          </p>
+          <div class="about-actions">
+            <a href="https://github.com/daccuong-uit" target="_blank" rel="noopener noreferrer" class="text-link">
+              Khám phá GitHub của tôi →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.8 Contact CTA (Charcoal Band, White Text) -->
+    <section class="section-contact-band" id="contact">
+      <div class="container contact-band-inner">
+        <h2 class="contact-band-title">Let's build something reliable.</h2>
+        <p class="contact-band-desc">
+          Bạn đang xây dựng một hệ thống quy mô lớn, cần tư vấn kiến trúc vi dịch vụ hoặc tìm kiếm
+          một Senior Backend Engineer tâm huyết? Hãy liên hệ ngay hôm nay.
+        </p>
+
+        <div class="contact-band-actions">
+          <a
+            href="mailto:daccuong.uit@gmail.com"
+            class="btn btn-white btn-lg"
+          >
+            Gửi email liên hệ
+          </a>
+
+          <div class="email-copy-pill" (click)="copyEmail($event)" role="button" tabindex="0" (keydown.enter)="copyEmail($event)" aria-label="Copy email address to clipboard">
+            <span class="email-text">daccuong.uit&#64;gmail.com</span>
+            <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span *ngIf="copiedEmail()" class="copy-tooltip">Copied!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 4.9 Footer (Surface Background) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <!-- Col 1-4: Brand & Tagline -->
+      <div class="footer-col-brand">
+        <span class="footer-logo">Đắc Cường</span>
+        <p class="footer-tagline">
+          Senior Backend Engineer · Distributed Systems Architect.<br />
+          Graduated from UIT — Vietnam National University HCMC.
+        </p>
+      </div>
+
+      <!-- Col 5-8: Navigation Links -->
+      <div class="footer-col-nav">
+        <span class="footer-header">Navigation</span>
+        <ul class="footer-nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#skills">Core Expertise</a></li>
+          <li><a href="#projects">Selected Projects</a></li>
+          <li><a href="#experience">Experience & Journey</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 9-12: Social Links & Copyright -->
+      <div class="footer-col-social">
+        <span class="footer-header">Connect</span>
+        <div class="footer-social-links">
+          <a href="https://github.com/daccuong-uit" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/daccuong-uit" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:daccuong.uit@gmail.com">daccuong.uit&#64;gmail.com</a>
+        </div>
+        <p class="footer-copyright">
+          © 2026 Đắc Cường. Built with Angular & Modern Minimalist design principles.
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
