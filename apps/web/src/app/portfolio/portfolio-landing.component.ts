@@ -71,14 +71,14 @@ export class PortfolioLandingComponent implements OnInit, OnDestroy {
       id: 'reals-platform',
       number: '01',
       category: 'Distributed Architecture',
-      title: 'Reals Platform — Distributed Social Commerce Ecosystem',
+      title: 'Reals Platform',
       problem:
-        'Tỷ lệ đọc/ghi feed bất đối xứng lớn, áp lực fan-out nghiêm trọng khi creator có hàng chục ngàn follower, và cần đồng bộ trạng thái giữa 6 ứng dụng con độc lập.',
+        'Khi một người có nhiều người theo dõi đăng bài, hệ thống cần cập nhật tin tức cho rất nhiều người cùng lúc mà không bị chậm hoặc mất dữ liệu.',
       solution:
-        'Thiết kế mô hình Hybrid Fan-out (Push cho người dùng thông thường, Pull cho top creator), kết hợp Transactional Outbox qua Apache Kafka để đảm bảo tính nhất quán cuối cùng.',
-      impact: '10,000+ RPS Throughput · P95 Latency < 45ms · Zero Data Loss',
+        'Tôi thiết kế lại cách hệ thống phân phối bài đăng, đảm bảo dữ liệu luôn được ghi nhận đầy đủ kể cả khi có sự cố.',
+      impact: 'Hệ thống xử lý ổn định với lượng truy cập lớn, không bị mất dữ liệu.',
       stack: ['Golang', 'Apache Kafka', 'PostgreSQL', 'Redis Cluster', 'Docker K8s'],
-      linkText: 'Xem tài liệu kiến trúc →',
+      linkText: 'Xem chi tiết dự án →',
       linkUrl: 'https://github.com/daccuong-uit',
       imageAlt: 'Sơ đồ kiến trúc Reals Distributed Social Platform',
       imageSvgType: 'platform',
@@ -87,14 +87,14 @@ export class PortfolioLandingComponent implements OnInit, OnDestroy {
       id: 'video-engine',
       number: '02',
       category: 'High-Throughput Media',
-      title: 'Video Ingestion & Adaptive HLS Streaming Engine',
+      title: 'Xử lý và phát video trực tuyến',
       problem:
-        'Tệp video dung lượng lớn gây nghẽn băng thông ứng dụng chính, tiêu tốn CPU đột biến khi xử lý mã hóa chuyển đổi nhiều định dạng HD đồng thời.',
+        'Video dung lượng lớn làm chậm hệ thống chính, và việc chuyển sang nhiều độ phân giải khác nhau tốn nhiều thời gian xử lý.',
       solution:
-        'Triển khai kiến trúc Direct S3 Presigned Upload (bypass 100% I/O qua API Gateway), điều phối cụm FFmpeg worker bất đồng bộ để phân đoạn HLS đa độ phân giải thích ứng (360p, 720p, 1080p).',
-      impact: '100% I/O Bypassed · 3 Giây sẵn sàng phát video · Giảm 40% băng thông',
+        'Tôi tách phần xử lý video ra khỏi hệ thống chính, giúp video sẵn sàng phát nhanh hơn.',
+      impact: 'Video sẵn sàng phát chỉ sau vài giây tải lên.',
       stack: ['Node.js', 'Go Worker', 'HLS.js', 'FFmpeg', 'MinIO / S3', 'BullMQ'],
-      linkText: 'Chi tiết luồng xử lý media →',
+      linkText: 'Xem chi tiết dự án →',
       linkUrl: 'https://github.com/daccuong-uit',
       imageAlt: 'Sơ đồ đường ống truyền tải video phân tán HLS',
       imageSvgType: 'streaming',
@@ -103,14 +103,14 @@ export class PortfolioLandingComponent implements OnInit, OnDestroy {
       id: 'reals-iam',
       number: '03',
       category: 'Identity & Security',
-      title: 'Reals IAM — Single Sign-On & Centralized Identity Provider',
+      title: 'Hệ thống đăng nhập và xác thực tập trung',
       problem:
-        'Phiên làm việc và phân quyền cần được xác minh tức thì trên toàn bộ mạng lưới vi dịch vụ, yêu cầu thu hồi token (Token Revocation) ngay lập tức khi phát hiện nghi vấn hoặc đăng xuất.',
+        'Người dùng cần đăng nhập một lần và dùng chung cho nhiều sản phẩm, hệ thống cũng phải nhận biết ngay khi một phiên đăng nhập bị thu hồi.',
       solution:
-        'Ký mã hóa token bất đối xứng chuẩn RS256 kết hợp OAuth2/OIDC, xoay vòng Refresh Token an toàn, tích hợp Redis Bloom Filter và In-Memory Blacklist để xác thực tức thì mà không chạm Database.',
-      impact: '< 5ms Thời gian thẩm định Token · Zero DB queries · Đồng bộ SSO 6 clients',
+        'Tôi xây dựng hệ thống xác thực có thể kiểm tra hợp lệ ngay lập tức, không cần truy vấn cơ sở dữ liệu mỗi lần.',
+      impact: 'Xác thực gần như tức thì, dùng chung cho toàn bộ hệ thống.',
       stack: ['Golang', 'OAuth2 / OIDC', 'JWT RS256', 'Redis Bloom', 'PostgreSQL'],
-      linkText: 'Xem chuẩn bảo mật IAM →',
+      linkText: 'Xem chi tiết dự án →',
       linkUrl: 'https://github.com/daccuong-uit',
       imageAlt: 'Sơ đồ xác thực phân tán SSO RS256',
       imageSvgType: 'iam',
@@ -119,20 +119,23 @@ export class PortfolioLandingComponent implements OnInit, OnDestroy {
 
   readonly otherProjects: OtherProject[] = [
     {
-      title: 'E-Commerce Distributed Transaction Engine',
-      description: 'Điều phối giao dịch phân tán đảm bảo ACID xuyên suốt nhiều service với Saga Orchestrator Pattern & Idempotent Consumer.',
+      title: 'Xử lý giao dịch phân tán cho thương mại điện tử',
+      description:
+        'Đảm bảo giao dịch được xử lý đúng và đầy đủ dù đi qua nhiều dịch vụ khác nhau.',
       stack: 'Golang · Kafka · PostgreSQL · gRPC',
       link: 'https://github.com/daccuong-uit',
     },
     {
-      title: 'High-Concurrency Real-Time Gateway',
-      description: 'Cổng giao tiếp WebSocket phân tán hỗ trợ hàng chục ngàn kết nối đồng thời qua Redis Pub/Sub và Go epoll routines.',
+      title: 'Cổng kết nối thời gian thực',
+      description:
+        'Duy trì hàng loạt kết nối trực tuyến cùng lúc mà không làm chậm hệ thống.',
       stack: 'Go (Gorilla/Epoll) · Redis · Docker',
       link: 'https://github.com/daccuong-uit',
     },
     {
-      title: 'Distributed Rate Limiter & Circuit Breaker',
-      description: 'Module bảo vệ hạ tầng ứng dụng thuật toán Sliding Window Log và Token Bucket phân tán, hạn chế lạm dụng API.',
+      title: 'Giới hạn truy cập & bảo vệ hệ thống',
+      description:
+        'Ngăn chặn lượng truy cập bất thường để bảo vệ hệ thống khỏi quá tải.',
       stack: 'Go · Redis Lua Script · Envoy',
       link: 'https://github.com/daccuong-uit',
     },

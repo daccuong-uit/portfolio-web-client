@@ -136,18 +136,17 @@
         <div class="hero-content">
           <div class="eyebrow-badge">
             <span class="status-indicator" aria-hidden="true"></span>
-            <span>Backend Engineer · Available for work</span>
+            <span>Backend Engineer</span>
           </div>
 
           <h1 class="hero-display">
-            Senior Backend Engineer building
-            <span class="text-contrast">scalable, reliable distributed systems</span>.
+            Tôi xây dựng hệ thống backend
+            <span class="text-contrast">ổn định và dễ mở rộng</span>.
           </h1>
 
           <p class="hero-lead">
-            Xin chào! Tôi là <strong>Đắc Cường</strong> (Alumnus UIT - ĐHQG TP.HCM). Tôi chuyên sâu về
-            thiết kế kiến trúc vi dịch vụ (Microservices), hệ thống phân tán chịu tải cao (High Concurrency),
-            Event-Driven Architecture, cơ sở dữ liệu quy mô lớn và tối ưu hóa hạ tầng Cloud-native.
+            Tôi là <strong>Đắc Cường</strong>, kỹ sư backend tốt nghiệp Đại học Công nghệ Thông tin (UIT - ĐHQG TP.HCM).
+            Tôi thiết kế và xây dựng hệ thống backend cho sản phẩm có lượng người dùng lớn, ưu tiên sự ổn định và khả năng mở rộng.
           </p>
 
           <div class="hero-cta-group">
@@ -223,35 +222,35 @@
             </div>
             <div class="terminal-body">
               <p class="terminal-line"><span class="cmd-prompt">$</span> meshctl telemetry --live</p>
-              <p class="terminal-line text-muted">Connecting to cluster agent at 10.0.4.12:9092...</p>
+              <p class="terminal-line text-muted">Connecting to cluster agent...</p>
               <div class="terminal-grid">
                 <div class="terminal-row">
                   <span class="term-key">STATUS</span>
-                  <span class="term-val val-green">HEALTHY (12/12 PODS)</span>
+                  <span class="term-val val-green">HEALTHY</span>
                 </div>
                 <div class="terminal-row">
                   <span class="term-key">THROUGHPUT</span>
-                  <span class="term-val">12,450 RPS (PEAK)</span>
+                  <span class="term-val">~10k requests/giây</span>
                 </div>
                 <div class="terminal-row">
                   <span class="term-key">LATENCY P99</span>
-                  <span class="term-val val-cyan">38.2 ms</span>
+                  <span class="term-val val-cyan">38ms</span>
                 </div>
                 <div class="terminal-row">
                   <span class="term-key">LATENCY P95</span>
-                  <span class="term-val">24.1 ms</span>
+                  <span class="term-val">24ms</span>
                 </div>
                 <div class="terminal-row">
-                  <span class="term-key">KAFKA LAG</span>
-                  <span class="term-val val-green">0 ms (SYNCED)</span>
+                  <span class="term-key">QUEUE LAG</span>
+                  <span class="term-val val-green">đã đồng bộ</span>
                 </div>
                 <div class="terminal-row">
                   <span class="term-key">DB POOL</span>
-                  <span class="term-val">42 / 100 ACTIVE</span>
+                  <span class="term-val">42 / 100 đang dùng</span>
                 </div>
                 <div class="terminal-row">
-                  <span class="term-key">UPTIME SLA</span>
-                  <span class="term-val val-green">99.992% (420d)</span>
+                  <span class="term-key">UPTIME</span>
+                  <span class="term-val val-green">ổn định nhiều tháng qua</span>
                 </div>
               </div>
               <p class="terminal-line terminal-cursor"><span class="cmd-prompt">&gt;</span> monitoring daemon running...</p>
@@ -266,9 +265,9 @@
       <div class="container">
         <div class="section-header-centered">
           <span class="section-eyebrow">Core Expertise</span>
-          <h2 class="section-heading">Kỹ năng chuyên môn & Công nghệ</h2>
+          <h2 class="section-heading">Kỹ năng & Công nghệ</h2>
           <p class="section-subtext">
-            Bộ công cụ và nền tảng tôi sử dụng hàng ngày để xây dựng các giải pháp đáng tin cậy.
+            Công nghệ tôi dùng để xây dựng hệ thống backend.
           </p>
         </div>
 
@@ -409,9 +408,10 @@
 
             <div class="project-info">
               <span class="project-meta">01 · DISTRIBUTED ARCHITECTURE</span>
-              <h3 class="project-title">Reals Platform — Distributed Social Commerce Ecosystem</h3>
+              <h3 class="project-title">Reals Platform</h3>
               <p class="project-problem">
-                Tỷ lệ đọc/ghi feed bất đối xứng lớn, áp lực fan-out nghiêm trọng khi creator có hàng chục ngàn follower, và cần đồng bộ trạng thái giữa 6 ứng dụng con độc lập.
+                Khi một người có nhiều người theo dõi đăng bài, hệ thống cần cập nhật tin tức cho rất nhiều người cùng lúc mà không bị chậm hoặc mất dữ liệu.
+                Tôi thiết kế lại cách hệ thống phân phối bài đăng, đảm bảo dữ liệu luôn được ghi nhận đầy đủ kể cả khi có sự cố.
               </p>
               <div class="project-tags">
                 <span class="pill-badge">Golang</span>
@@ -421,7 +421,7 @@
                 <span class="pill-badge">Docker K8s</span>
               </div>
               <div class="project-impact">
-                <strong>10,000+ RPS Throughput</strong> · P95 Latency &lt; 45ms · 6 Micro-Clients
+                <strong>Hệ thống xử lý ổn định</strong> với lượng truy cập lớn, không bị mất dữ liệu.
               </div>
               <a
                 href="https://github.com/daccuong-uit"
@@ -429,7 +429,7 @@
                 rel="noopener noreferrer"
                 class="case-link"
               >
-                Xem case study kiến trúc →
+                Xem chi tiết dự án →
               </a>
             </div>
           </article>
@@ -454,9 +454,10 @@
 
             <div class="project-info">
               <span class="project-meta">02 · HIGH-THROUGHPUT MEDIA</span>
-              <h3 class="project-title">Video Ingestion & Adaptive HLS Streaming Engine</h3>
+              <h3 class="project-title">Xử lý và phát video trực tuyến</h3>
               <p class="project-problem">
-                Tệp video dung lượng lớn gây nghẽn băng thông ứng dụng chính, tiêu tốn CPU đột biến khi xử lý mã hóa chuyển đổi nhiều định dạng HD đồng thời.
+                Video dung lượng lớn làm chậm hệ thống chính, và việc chuyển sang nhiều độ phân giải khác nhau tốn nhiều thời gian xử lý.
+                Tôi tách phần xử lý video ra khỏi hệ thống chính, giúp video sẵn sàng phát nhanh hơn.
               </p>
               <div class="project-tags">
                 <span class="pill-badge">Node.js</span>
@@ -466,7 +467,7 @@
                 <span class="pill-badge">MinIO / S3</span>
               </div>
               <div class="project-impact">
-                <strong>100% I/O Bypassed</strong> · 3 Giây sẵn sàng phát · Tiết kiệm 40% băng thông
+                <strong>Video sẵn sàng phát</strong> chỉ sau vài giây tải lên.
               </div>
               <a
                 href="https://github.com/daccuong-uit"
@@ -474,7 +475,7 @@
                 rel="noopener noreferrer"
                 class="case-link"
               >
-                Xem luồng xử lý media →
+                Xem chi tiết dự án →
               </a>
             </div>
           </article>
@@ -499,9 +500,10 @@
 
             <div class="project-info">
               <span class="project-meta">03 · IDENTITY & SECURITY</span>
-              <h3 class="project-title">Reals IAM — Single Sign-On & Centralized Identity Provider</h3>
+              <h3 class="project-title">Hệ thống đăng nhập và xác thực tập trung</h3>
               <p class="project-problem">
-                Phiên làm việc và phân quyền cần được xác minh tức thì trên toàn bộ mạng lưới vi dịch vụ, yêu cầu thu hồi token (Token Revocation) ngay lập tức khi phát hiện nghi vấn hoặc đăng xuất.
+                Người dùng cần đăng nhập một lần và dùng chung cho nhiều sản phẩm, hệ thống cũng phải nhận biết ngay khi một phiên đăng nhập bị thu hồi.
+                Tôi xây dựng hệ thống xác thực có thể kiểm tra hợp lệ ngay lập tức, không cần truy vấn cơ sở dữ liệu mỗi lần.
               </p>
               <div class="project-tags">
                 <span class="pill-badge">Golang</span>
@@ -511,7 +513,7 @@
                 <span class="pill-badge">PostgreSQL</span>
               </div>
               <div class="project-impact">
-                <strong>&lt; 5ms Token Verification</strong> · Zero DB Queries · Đồng bộ SSO 6 clients
+                <strong>Xác thực gần như tức thì</strong>, dùng chung cho toàn bộ hệ thống.
               </div>
               <a
                 href="https://github.com/daccuong-uit"
@@ -519,7 +521,7 @@
                 rel="noopener noreferrer"
                 class="case-link"
               >
-                Xem chuẩn bảo mật IAM →
+                Xem chi tiết dự án →
               </a>
             </div>
           </article>
@@ -586,25 +588,19 @@
               <li class="achievement-item">
                 <span class="bullet-dot" aria-hidden="true"></span>
                 <p>
-                  Thiết kế và triển khai kiến trúc vi dịch vụ định hướng sự kiện (Event-Driven) chịu tải
-                  <strong>10,000+ requests/sec</strong> với tỷ lệ sẵn sàng <strong>99.99% uptime</strong>,
-                  ngăn ngừa hiện tượng cascading failure qua cơ chế Circuit Breaker và Dead-Letter Queues.
+                  Thiết kế hệ thống xử lý sự kiện, đáp ứng ổn định với lượng truy cập lớn và tỉ lệ hoạt động liên tục trên 99%.
                 </p>
               </li>
               <li class="achievement-item">
                 <span class="bullet-dot" aria-hidden="true"></span>
                 <p>
-                  Tối ưu hóa chiến lược bộ nhớ đệm đa tầng (Multi-tier Caching) và mô hình Hybrid Fan-out,
-                  giảm độ trễ trung bình truy vấn tin tức người dùng từ <strong>180ms xuống &lt; 45ms (P95)</strong>,
-                  tiết kiệm <strong>55% tài nguyên CPU</strong> của cụm cơ sở dữ liệu PostgreSQL.
+                  Tối ưu cách hệ thống lấy dữ liệu tin tức, giảm thời gian phản hồi trung bình xuống dưới 50ms.
                 </p>
               </li>
               <li class="achievement-item">
                 <span class="bullet-dot" aria-hidden="true"></span>
                 <p>
-                  Xây dựng hệ thống xác thực tập trung IAM chuẩn OAuth2/OIDC mã hóa bất đối xứng RS256,
-                  kết hợp Redis Bloom Filter cho phép kiểm tra thu hồi Token với thời gian <strong>&lt; 5ms</strong>
-                  hoàn toàn không cần truy vấn trực tiếp vào Database.
+                  Xây dựng hệ thống xác thực dùng chung cho toàn bộ sản phẩm, kiểm tra phiên đăng nhập gần như tức thì mà không cần truy vấn cơ sở dữ liệu.
                 </p>
               </li>
             </ul>
@@ -618,9 +614,9 @@
       <div class="container">
         <div class="section-header-centered">
           <span class="section-eyebrow">Engineering Pillars</span>
-          <h2 class="section-heading">Trụ cột kỹ thuật cốt lõi</h2>
+          <h2 class="section-heading">Thế mạnh kỹ thuật</h2>
           <p class="section-subtext">
-            5 nguyên tắc và thế mạnh định hình các hệ thống backend chất lượng cao.
+            Những nguyên tắc tôi áp dụng khi xây dựng hệ thống backend.
           </p>
         </div>
 
@@ -636,7 +632,7 @@
             </div>
             <h3 class="highlight-title">Architecture</h3>
             <p class="highlight-desc">
-              Thiết kế vi dịch vụ phân ranh giới rõ ràng (Bounded Contexts), giao tiếp bất đồng bộ qua Event Broker giảm phụ thuộc.
+              Chia hệ thống thành các phần nhỏ, độc lập, dễ thay đổi mà không ảnh hưởng lẫn nhau.
             </p>
           </div>
 
@@ -649,7 +645,7 @@
             </div>
             <h3 class="highlight-title">Scalability</h3>
             <p class="highlight-desc">
-              Mở rộng chiều ngang (Horizontal Scaling), phân mảnh dữ liệu (Sharding) và kiến trúc đệm phân tán linh hoạt.
+              Thiết kế hệ thống có thể mở rộng khi lượng người dùng tăng lên.
             </p>
           </div>
 
@@ -663,7 +659,7 @@
             </div>
             <h3 class="highlight-title">Performance</h3>
             <p class="highlight-desc">
-              Kiểm soát phân bổ bộ nhớ (Zero-allocation Go), Connection Pooling và tối ưu truy vấn P99 khắt khe.
+              Tối ưu tốc độ xử lý để hệ thống phản hồi nhanh, kể cả khi tải cao.
             </p>
           </div>
 
@@ -676,7 +672,7 @@
             </div>
             <h3 class="highlight-title">Reliability</h3>
             <p class="highlight-desc">
-              Cơ chế Circuit Breaker, Exponential Backoff Retries, suy giảm chức năng êm dịu (Graceful Degradation).
+              Xây dựng hệ thống có thể tự phục hồi khi một phần gặp sự cố, không làm gián đoạn toàn bộ dịch vụ.
             </p>
           </div>
 
@@ -698,7 +694,7 @@
             </div>
             <h3 class="highlight-title">System Design</h3>
             <p class="highlight-desc">
-              Đảm bảo tính Idempotency, giải quyết bài toán Distributed Transactions qua Saga và Outbox Pattern.
+              Đảm bảo dữ liệu chính xác và nhất quán, kể cả khi xử lý qua nhiều dịch vụ khác nhau.
             </p>
           </div>
         </div>
@@ -713,14 +709,13 @@
             <span>DC</span>
           </div>
           <span class="section-eyebrow">About Me</span>
-          <h2 class="about-heading">Đam mê chiều sâu kỹ thuật & giá trị thực tế</h2>
+          <h2 class="about-heading">Về tôi</h2>
           <p class="about-bio">
-            Tôi tin rằng một kỹ sư phần mềm xuất sắc không chỉ viết mã nguồn chạy được, mà còn tạo ra những kiến trúc
-            bền vững trước thời gian, tiết kiệm tài nguyên hạ tầng và mang lại trải nghiệm tin cậy cho người dùng.
+            Tôi là kỹ sư backend, tốt nghiệp Đại học Công nghệ Thông tin (UIT - ĐHQG TP.HCM).
+            Tôi thích giải quyết các bài toán về hiệu năng, độ ổn định và khả năng mở rộng của hệ thống.
           </p>
           <p class="about-subbio">
-            Tốt nghiệp Đại học Công nghệ Thông tin (UIT - ĐHQG TP.HCM), tôi luôn duy trì kỷ luật kỹ thuật cao,
-            tập trung giải quyết các bài toán hóc búa về tính nhất quán dữ liệu, độ trễ và khả năng phục hồi sau sự cố.
+            Ngoài công việc, tôi dành thời gian tìm hiểu sâu hơn về kiến trúc hệ thống.
           </p>
           <div class="about-actions">
             <a href="https://github.com/daccuong-uit" target="_blank" rel="noopener noreferrer" class="text-link">
@@ -734,10 +729,9 @@
     <!-- 4.8 Contact CTA (Charcoal Band, White Text) -->
     <section class="section-contact-band" id="contact">
       <div class="container contact-band-inner">
-        <h2 class="contact-band-title">Let's build something reliable.</h2>
+        <h2 class="contact-band-title">Bạn có một hệ thống cần xây dựng?</h2>
         <p class="contact-band-desc">
-          Bạn đang xây dựng một hệ thống quy mô lớn, cần tư vấn kiến trúc vi dịch vụ hoặc tìm kiếm
-          một Senior Backend Engineer tâm huyết? Hãy liên hệ ngay hôm nay.
+          Nếu bạn cần một kỹ sư backend cho dự án của mình, hãy gửi email cho tôi.
         </p>
 
         <div class="contact-band-actions">
@@ -768,8 +762,8 @@
       <div class="footer-col-brand">
         <span class="footer-logo">Đắc Cường</span>
         <p class="footer-tagline">
-          Senior Backend Engineer · Distributed Systems Architect.<br />
-          Graduated from UIT — Vietnam National University HCMC.
+          Backend Engineer.<br />
+          Tốt nghiệp UIT — ĐHQG TP.HCM.
         </p>
       </div>
 
@@ -794,7 +788,7 @@
           <a href="mailto:daccuong.uit@gmail.com">daccuong.uit&#64;gmail.com</a>
         </div>
         <p class="footer-copyright">
-          © 2026 Đắc Cường. Built with Angular & Modern Minimalist design principles.
+          © 2026 Đắc Cường.
         </p>
       </div>
     </div>
